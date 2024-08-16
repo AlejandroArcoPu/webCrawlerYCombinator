@@ -18,9 +18,13 @@ function App() {
 
   if(!news) return null
 
-  const newsToShow = !filterComments
-  ? news
-  : news.filter(n => n.title.split(' ').length > 5).sort((a,b) => b.comments - a.comments) // split to count spaced words
+  const filteringByCommentsPoints = (newsWithoutFilter) => {
+    if(!filterComments && !filterPoints) return newsWithoutFilter
+    if(filterComments) return news.filter(n => n.title.split(' ').length > 5).sort((a,b) => b.comments - a.comments)
+    if(filterPoints) return news.filter(n => n.title.split(' ').length <= 5).sort((a,b) => b.points - a.points)
+  }
+
+  const newsToShow = filteringByCommentsPoints(news) // split to count spaced words
 
   return (
     <>
@@ -32,14 +36,14 @@ function App() {
       <p>
         Click the buttons to filter
       </p>
-      <button onClick={() => setFilterComments(!filterComments)}>Filter by Comments (more than 5 title words) {filterComments ? 'true' : 'false'}</button>
-      <button onClick={() => setFilterPoints(!filterPoints)}>Filter by Points (less or equal than 5 title words) {filterPoints ? 'true' : 'false'}</button>
+      <button disabled={filterPoints} onClick={() => setFilterComments(!filterComments)}>Filter by Comments (more than 5 title words) {filterComments ? 'true' : 'false'}</button>
+      <button disabled={filterComments} onClick={() => setFilterPoints(!filterPoints)}>Filter by Points (less or equal than 5 title words) {filterPoints ? 'true' : 'false'}</button>
       <table>
         <thead>
           <tr>
             <th scope="col">Position</th>
             <th scope="col">Title</th>
-            <th scope="col">Score</th>
+            <th scope="col">Points</th>
             <th scope="col">Comments</th>
           </tr>
         </thead>
@@ -48,7 +52,7 @@ function App() {
           <tr key={n.pos}>
             <td>{n.pos}</td>
             <td>{n.title}</td>
-            <td>{n.score}</td>
+            <td>{n.points}</td>
             <td>{n.comments}</td>
           </tr>)}
         </tbody>

@@ -16,7 +16,7 @@ const getScraping = () => {
                     return { 
                         pos: _ + 1, 
                         title: titlesText, 
-                        score: score ? Number(score.match(/(\d+)/)[0]) : 0, // to match only the digits
+                        points: score ? Number(score.match(/(\d+)/)[0]) : 0, // to match only the digits
                         comments: /\d/.test(comments) ? Number(comments.match(/(\d+)/)[0]) : 0 // this can contains sometimes only words so check first if has digits
                     }
                 })
