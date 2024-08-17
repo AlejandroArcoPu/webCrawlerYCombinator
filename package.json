@@ -1,0 +1,19 @@
+{
+  "name": "webcrawlerycombinator",
+  "version": "1.0.0",
+  "description": "Web Crawler that extracts data from https://news.ycombinator.com/",
+  "main": "index.js",
+  "scripts": {
+    "start": "",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "frontend": "npm run dev --prefix frontend",
+    "backend": "nodemon backend/index.js",
+    "dev": "concurrently \"npm run frontend\" \"npm run backend\""
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "concurrently": "^8.2.2",
+    "nodemon": "^3.1.4"
+  }
+}
