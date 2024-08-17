@@ -36,8 +36,8 @@ function App() {
       <p>
         Click the buttons to filter
       </p>
-      <button disabled={filterPoints} onClick={() => setFilterComments(!filterComments)}>Filter by Comments (more than 5 title words) {filterComments ? 'true' : 'false'}</button>
-      <button disabled={filterComments} onClick={() => setFilterPoints(!filterPoints)}>Filter by Points (less or equal than 5 title words) {filterPoints ? 'true' : 'false'}</button>
+      <button disabled={filterPoints} onClick={() => setFilterComments(!filterComments)}>Filter by Comments (more than 5 title words)</button>
+      <button disabled={filterComments} onClick={() => setFilterPoints(!filterPoints)}>Filter by Points (less or equal than 5 title words)</button>
       <table>
         <thead>
           <tr>
