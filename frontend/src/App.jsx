@@ -1,6 +1,7 @@
 import { useState,useEffect } from 'react'
 import hackerLogo from '/hacker-news.svg'
 import newsService from './services/news'
+import News from './components/News'
 
 function App() {
 
@@ -38,25 +39,7 @@ function App() {
       </p>
       <button disabled={filterPoints} onClick={() => setFilterComments(!filterComments)}>Filter by Comments (more than 5 title words)</button>
       <button disabled={filterComments} onClick={() => setFilterPoints(!filterPoints)}>Filter by Points (less or equal than 5 title words)</button>
-      <table>
-        <thead>
-          <tr>
-            <th scope="col">Position</th>
-            <th scope="col">Title</th>
-            <th scope="col">Points</th>
-            <th scope="col">Comments</th>
-          </tr>
-        </thead>
-        <tbody>
-          {newsToShow.map((n) => 
-          <tr key={n.pos}>
-            <td>{n.pos}</td>
-            <td>{n.title}</td>
-            <td>{n.points}</td>
-            <td>{n.comments}</td>
-          </tr>)}
-        </tbody>
-      </table>
+      <News newsToShow={newsToShow}/>
     </div>
     </>
   )
