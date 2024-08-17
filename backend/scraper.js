@@ -13,7 +13,12 @@ const getScraping = () => {
                     const subTitleText =  $(element).next('tr').find('td.subtext span.subline') // get sublines tat contains score and comments
                     const score = subTitleText.find('span.score').text()
                     const comments = subTitleText.find('a').last().text()
-                    return { pos: _ + 1, title: titlesText, score: score, comments: comments}
+                    return { 
+                        pos: _ + 1, 
+                        title: titlesText, 
+                        points: score ? Number(score.match(/(\d+)/)[0]) : 0, // to match only the digits
+                        comments: /\d/.test(comments) ? Number(comments.match(/(\d+)/)[0]) : 0 // this can contains sometimes only words so check first if has digits
+                    }
                 })
                 .toArray() // to transform jQuery elements to JS array
                 
