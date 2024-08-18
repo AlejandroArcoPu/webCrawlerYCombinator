@@ -37,3 +37,5 @@ jobs:
       - name: Build Dockerfile Frontend
         working-directory: ./frontend
         run: docker build -t frontend .
+    
+    # missing the deploy part of our images to a container registry and then updating our HELM for example
