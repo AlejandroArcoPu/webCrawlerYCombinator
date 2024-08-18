@@ -21,7 +21,7 @@ Web Crawler that extracts data from https://news.ycombinator.com/
     * `/tests`: Contains all the API tests.
 
 * `/frontend`
-    * `src/App.jsx`: Where the main React App compones is defined
+    * `src/App.jsx`: Where the main React App component is defined
     * `src/components`: Contains reusable components of the UI
     * `src/services`: Directory used to manage APIs integrations with the app
     * `Dockerfile`: Definition of the Node.js containerized app
@@ -82,3 +82,11 @@ docker-compose up
 npm run test
 
 ```
+
+## Contributing
+
+To contribute make a PR to the main branch where there are some checks:
+
+- Colleague approval
+- Pipeline execution successfully
+
