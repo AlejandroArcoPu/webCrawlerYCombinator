@@ -25,3 +25,15 @@ jobs:
       - name: Run Backend Tests
         working-directory: ./backend
         run: npm test
+      
+      - name: Build Dockerfile Backend
+        working-directory: ./backend
+        run: docker build -t backend .
+
+      - name: Install Frontend Dependencies
+        working-directory: ./frontend
+        run: npm install
+      
+      - name: Build Dockerfile Frontend
+        working-directory: ./frontend
+        run: docker build -t frontend .
