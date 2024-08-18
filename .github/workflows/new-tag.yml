@@ -1,7 +1,6 @@
 name: webCrawlerYCombinator tag pipeline
 
 on:
-  workflow_dispatch:
   push: 
     branches:
       - main
@@ -24,4 +23,10 @@ jobs:
         run: |
           echo ${{ steps.get_next_version.outputs.version }}
           echo ${{ steps.get_next_version.outputs.hasNextVersion }}
+
+      - name: Create and push tag
+        if: ${{ steps.get_next_version.outputs.hasNextVersion == 'true' }}
+        run: |
+          git tag ${{ steps.get_next_version.outputs.version }}
+          git push origin ${{ steps.get_next_version.outputs.version }}
 
