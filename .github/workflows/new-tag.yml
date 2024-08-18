@@ -1,7 +1,6 @@
 name: webCrawlerYCombinator tag pipeline
 
 on:
-  workflow_dispatch:
   push: 
     branches:
       - main
