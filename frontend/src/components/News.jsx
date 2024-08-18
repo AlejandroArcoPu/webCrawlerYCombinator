@@ -1,6 +1,6 @@
 const News = ({newsToShow}) => {
     return(
-        <table className="shadow-2xl w-9/12 text-sm text-center rtl:text-right text-gray-500">
+        <table className="shadow-2xl w-9/12 text-sm text-left rtl:text-right text-gray-500">
         <thead className="text-xs text-gray-700 uppercase bg-gray-100">
           <tr >
             <th scope="col" className="px-6 py-3">Position</th>
@@ -12,10 +12,10 @@ const News = ({newsToShow}) => {
         <tbody>
           {newsToShow.map((n) => 
           <tr className="bg-white border-b hover:bg-gray-50 " key={n.pos}>
-            <td>{n.pos}</td>
+            <td className="px-6 py-4">{n.pos}</td>
             <td className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">{n.title}</td>
-            <td>{n.points}</td>
-            <td>{n.comments}</td>
+            <td className="px-6 py-4">{n.points}</td>
+            <td className="px-6 py-4">{n.comments}</td>
           </tr>)}
         </tbody>
       </table>
